@@ -3,19 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EAVS Rescue Dashboard</title>
+    <title>EAVS Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between; /* Distributes space between items */
+            margin-bottom: 20px; /* Adds space between sections */
+        }
+        .box {
+            flex: 1; /* Allows both sections to grow equally */
+            margin: 0 10px; /* Adds space between the boxes */
+            border: 1px solid #ccc; /* Optional: Adds a border */
+            padding: 10px; /* Optional: Adds padding inside the boxes */
+            box-sizing: border-box; /* Ensures padding is included in total width */
+        }
+        h1 {
+            margin-top: 0; /* Removes top margin from headings */
+        }
+    </style>
 </head>
 <body>
-    <h1>Facilities</h1>
+    <h1>Welcome to My Dashboard</h1>
+    <!-- Insert Caspio embed code here -->
     <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd0005b7198188e8a49e2a6f6/emb"></script>
 
     <h1>Attractions</h1>
     <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000c56f18117d6e48fd839c/emb"></script>
 
-    <h1>Type of Rescue</h1>
-    <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000ca21f38916b94f889923/emb"></script>
+    <div class="container">
+        <div class="box">
+            <h1>Type of Rescue</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000ca21f38916b94f889923/emb"></script>
+        </div>
 
-    <h1>GID Reactions</h1>
-    <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd0007e5bae117a5b41308766/emb"></script>
+        <div class="box">
+            <h1>GID Reactions</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd0007e5bae117a5b41308766/emb"></script>
+        </div>
+    </div>
 </body>
 </html>
