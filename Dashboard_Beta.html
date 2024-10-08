@@ -14,6 +14,7 @@
             background-position: center;
             background-repeat: no-repeat;
             color: #fff;
+            display: none; /* Hide the page content initially */
         }
         .header {
             display: flex;
@@ -55,6 +56,19 @@
             color: #fff;
         }
     </style>
+
+    <script>
+        // Password protection
+        const password = "EAVS2024!";
+        const userInput = prompt("Please enter the password:");
+
+        // Check if the entered password is correct
+        if (userInput === password) {
+            document.body.style.display = "block";  // Show content if password is correct
+        } else {
+            document.body.innerHTML = "Access denied!";
+        }
+    </script>
 </head>
 <body>
     <div class="header">
