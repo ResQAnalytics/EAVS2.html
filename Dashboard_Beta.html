@@ -14,7 +14,7 @@
             background-position: center;
             background-repeat: no-repeat;
             color: #fff;
-            display: none; /* Hide the page content initially */
+            visibility: hidden; /* Hide the body initially */
         }
         .header {
             display: flex;
@@ -64,7 +64,7 @@
 
         // Check if the entered password is correct
         if (userInput === password) {
-            document.body.style.display = "block";  // Show content if password is correct
+            document.body.style.visibility = "visible";  // Show content if password is correct
         } else {
             document.body.innerHTML = "Access denied!";
         }
@@ -127,6 +127,5 @@
     
 </body>
 </html>
-
 
 
