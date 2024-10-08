@@ -8,41 +8,62 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-image: url('https://i.vimeocdn.com/video/1742650842-a55f95fb97ed6d3a55bde28ba199c31e4a081413fc536d957c8b9d431b6623e4-d_640?f=webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #fff; /* Adjust text color for readability */
+            color: #fff;
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            padding: 20px;
+        }
+        .header h1 {
+            text-transform: uppercase;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 0;
+            color: #fff;
+        }
+        .search-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
         }
         .container {
             display: flex;
-            justify-content: space-between; /* Distributes space between items */
-            margin-bottom: 20px; /* Adds space between sections */
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
         .box {
-            flex: 1; /* Allows both sections to grow equally */
-            margin: 0 10px; /* Adds space between the boxes */
-            border: 1px solid #ccc; /* Optional: Adds a border */
-            padding: 10px; /* Optional: Adds padding inside the boxes */
-            box-sizing: border-box; /* Ensures padding is included in total width */
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            flex: 1;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.6);
         }
         h1 {
-            text-transform: uppercase; /* Transforms text to uppercase (block letters) */
-            font-size: 2em; /* Increases the font size */
-            font-weight: bold; /* Makes the text bold */
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow effect */
-            margin-top: 0; /* Removes top margin from headings */
-            color: #fff; /* Sets the color of the text */
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <h1>EAVS Rescue Dashboard</h1>
+    <div class="header">
+        <h1>EAVS Rescue Dashboard</h1>
+    </div>
 
-    <h1>Search Filter</h1>
-    <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000c0d7b32f2c4c4c848eda/emb"></script>
+    <div class="search-container">
+        <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000c0d7b32f2c4c4c848eda/emb"></script>
+    </div>
 
     <h1>Facilities</h1>
     <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd0007e33e3efaf444c94a3d0/emb"></script>
@@ -92,5 +113,6 @@
     
 </body>
 </html>
+
 
 
