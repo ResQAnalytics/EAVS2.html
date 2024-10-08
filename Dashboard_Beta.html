@@ -14,7 +14,6 @@
             background-position: center;
             background-repeat: no-repeat;
             color: #fff;
-            visibility: hidden; /* Hide the body initially */
         }
         .header {
             display: flex;
@@ -56,87 +55,78 @@
             color: #fff;
         }
     </style>
-
-    <script>
-        // Password protection
-        const password = "EAVS2024!";
-        const userInput = prompt("Please enter the password:");
-
-        // Function to reload Caspio scripts dynamically
-        function loadCaspioScripts() {
-            // Caspio scripts URLs
-            const scriptUrls = [
-                "https://c2hbs301.caspio.com/dp/7e2fd000c0d7b32f2c4c4c848eda/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd0007e33e3efaf444c94a3d0/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000dfa362b2c56f4273b888/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd00024aa4c829a7848bc84f4/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000d52b140d9cef4aa89c02/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000dd69e9e03beb446f9bfc/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000ccfea7040f7f4dc7a791/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd00032433a870e304f56a64d/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000d8d826060a4347b79b95/emb",
-                "https://c2hbs301.caspio.com/dp/7e2fd000f4e582ccd2644b869ad9/emb"
-            ];
-
-            scriptUrls.forEach((url) => {
-                const script = document.createElement("script");
-                script.type = "text/javascript";
-                script.src = url;
-                document.body.appendChild(script); // Append each script to the body
-            });
-        }
-
-        // Check if the entered password is correct
-        if (userInput === password) {
-            document.body.style.visibility = "visible";  // Show content if password is correct
-            loadCaspioScripts();  // Reload the Caspio scripts
-        } else {
-            document.body.innerHTML = "Access denied!";
-        }
-    </script>
 </head>
 <body>
     <div class="header">
         <h1>EAVS Rescue Dashboard</h1>
     </div>
 
-    <div class="search-container"></div>
+    <div class="search-container">
+        <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000c0d7b32f2c4c4c848eda/emb"></script>
+    </div>
+
     <h1>Facilities</h1>
+    <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd0007e33e3efaf444c94a3d0/emb"></script>
+
     <h1>Attractions</h1>
+    <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000dfa362b2c56f4273b888/emb"></script>
 
     <div class="container">
         <div class="box">
             <h1>Incident</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd00024aa4c829a7848bc84f4/emb"></script>
         </div>
         <div class="box">
             <h1>Sex</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000d52b140d9cef4aa89c02/emb"></script>
         </div>
     </div>
 
     <div class="container">
         <div class="box">
             <h1>Guest Stage of Life</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000dd69e9e03beb446f9bfc/emb"></script>
         </div>
         <div class="box">
             <h1>Proximate Cause</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000ccfea7040f7f4dc7a791/emb"></script>
         </div>
     </div>
 
     <div class="container">
         <div class="box">
             <h1>Life Jackets</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd00032433a870e304f56a64d/emb"></script>
         </div>
         <div class="box">
             <h1>Type of Rescue</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000d8d826060a4347b79b95/emb"></script>
         </div>
     </div>
 
     <div class="container">
         <div class="box">
             <h1>GID Reactions</h1>
+            <script type="text/javascript" src="https://c2hbs301.caspio.com/dp/7e2fd000f4e582ccd2644b869ad9/emb"></script>
         </div>
     </div>
     
+    <script>
+        // Password protection with page reload
+        const password = "EAVS2024!";
+        const userInput = sessionStorage.getItem('authenticated');  // Check if session already has access
+
+        // If the user hasn't entered the password, ask for it
+        if (!userInput) {
+            const enteredPassword = prompt("Please enter the password:");
+            if (enteredPassword === password) {
+                sessionStorage.setItem('authenticated', 'true'); // Set session storage to avoid future prompts
+                location.reload();  // Reload the page so scripts can load properly
+            } else {
+                document.body.innerHTML = "Access denied!";
+            }
+        }
+    </script>
 </body>
 </html>
 
