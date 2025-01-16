@@ -12,17 +12,47 @@
         }
         iframe {
             width: 100%;
-            height: 100vh;
+            height: 80vh; /* Adjusted to make room for the acceptance agreement */
             border: none;
+        }
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .agreement {
+            text-align: center;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        img {
+            max-width: 200px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <h1 style="text-align: center;">Power BI Report: EAVS Rescue Dashboard</h1>
+
+    <div class="logo-container" id="logo-container" style="display: none;">
+        <img src="https://eaisafety.com/wp-content/uploads/2020/05/eai-logo.png" alt="EAI Safety Logo">
+        <div class="agreement">
+            <p>
+                The data contained in this dashboard references data obtained in 2024. The data collection metrics were 
+                changed in April 2024, resulting in different metrics that are displayed.
+            </p>
+        </div>
+    </div>
+
     <iframe 
+        id="report-frame"
         title="EAVSCLEAN" 
         src="https://app.powerbi.com/view?r=eyJrIjoiZDU3MGNjZGYtYmUzZi00YTk4LThkNmQtMDhhYzE3ZmRhZDRhIiwidCI6ImJhZjgyMThlLWIzMDItNDQ2NS1hOTkzLTRhMzljOTcyNTFiMiIsImMiOjF9"
-        allowFullScreen="true">
+        allowFullScreen="true" 
+        style="display: none;">
     </iframe>
 
     <script>
@@ -34,12 +64,16 @@
             const enteredPassword = prompt("Please enter the password:");
             if (enteredPassword === password) {
                 sessionStorage.setItem('authenticated', 'true'); // Save authentication in session
+                document.getElementById('logo-container').style.display = 'block';
+                document.getElementById('report-frame').style.display = 'block';
             } else {
                 document.body.innerHTML = "<h1 style='text-align: center; color: red;'>Access Denied!</h1>";
             }
+        } else {
+            document.getElementById('logo-container').style.display = 'block';
+            document.getElementById('report-frame').style.display = 'block';
         }
     </script>
 </body>
 </html>
-
 
