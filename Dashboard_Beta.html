@@ -80,11 +80,13 @@
     </style>
 </head>
 <body>
+    <!-- Login screen -->
     <div class="login-container" id="login-screen">
         <h2>Welcome to EAVS Rescue Dashboard</h2>
         <button class="login-button" onclick="startSAMLLogin()">Login via Pectora</button>
     </div>
 
+    <!-- Power BI iframe (hidden until login+agreement) -->
     <iframe 
         id="report-frame"
         title="EAVS Production Dashboard" 
@@ -92,6 +94,7 @@
         allowFullScreen="true">
     </iframe>
 
+    <!-- Agreement modal -->
     <div class="modal" id="agreement-modal">
         <div class="modal-content">
             <img src="https://eaisafety.com/wp-content/uploads/2020/05/eai-logo.png" alt="EAI Safety Logo">
@@ -103,17 +106,20 @@
     </div>
 
     <script>
-        // Redirect to Auth0 for SAML login
+        // 🔑 Redirect to Auth0's SAML endpoint for Pectora
         function startSAMLLogin() {
-            const samlURL = "https://dev-7qrkhpu6m3l7j1uq.us.auth0.com/samlp/PectoraRESQ-SAML";
+            const auth0Domain = "dev-7qrkhpu6m3l7j1uq.us.auth0.com";
+            const connection = "PectoraRESQ-SAML"; // <-- must match your Auth0 SAML connection name
+            const samlURL = `https://${auth0Domain}/samlp/${connection}`;
             window.location.href = samlURL;
         }
 
-        // Simulate successful login and show modal (you'll need real SP handling for production)
-        // This block is just a placeholder — in reality, you'd need to parse the SAML response server-side
+        // ✅ After successful login, Auth0 will send users to Pectora ACS.
+        // If you want to show the dashboard *after they return to GitHub*, you can
+        // detect a flag in the query string (you'll need Pectora to redirect back).
         window.addEventListener('load', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('saml_response')) {
+            if (urlParams.has('logged_in')) {
                 document.getElementById('login-screen').style.display = 'none';
                 showAgreementModal();
             }
@@ -131,6 +137,4 @@
     </script>
 </body>
 </html>
-
-
 
