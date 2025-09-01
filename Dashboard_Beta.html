@@ -86,7 +86,7 @@
         <button class="login-button" onclick="startSAMLLogin()">Login via Pectora</button>
     </div>
 
-    <!-- Power BI iframe (hidden until login+agreement) -->
+    <!-- Power BI iframe (hidden until login + agreement) -->
     <iframe 
         id="report-frame"
         title="EAVS Production Dashboard" 
@@ -114,9 +114,7 @@
             window.location.href = samlURL;
         }
 
-        // ✅ After successful login, Auth0 will send users to Pectora ACS.
-        // If you want to show the dashboard *after they return to GitHub*, you can
-        // detect a flag in the query string (you'll need Pectora to redirect back).
+        // ✅ Detect if user returned from Auth0 login
         window.addEventListener('load', () => {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('logged_in')) {
@@ -137,4 +135,3 @@
     </script>
 </body>
 </html>
-
